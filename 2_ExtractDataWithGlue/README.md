@@ -1,36 +1,42 @@
 # Module 2: Connect, discover and extract data from your MySql database using AWS Glue
 
-In this module you will create an RDS MySql Database and load sample data into it.
+In this module you will connect to your RDS MySql Database, discover and extract data into your Data Lake on S3 using AWS Glue.
 
 
-## Implementation Instructions
 
-Each of the following sections provide an implementation overview and detailed, step-by-step instructions. The overview should provide enough context for you to complete the implementation if you're already familiar with the AWS Management Console or you want to explore the services yourself without following a walkthrough.
-
-### Prepare resources 
+### Create AWS Glue Crawler 
 
 In this step, we will use a CloudFormation template to provision the RDS MySql database which we will need in later steps of the workshop.
 
-Region| Region Code | Launch
-------|------|-------
-US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> | [![Launch Module 1 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=DB-to-DL&templateURL=https://sapuzzle.com.s3.amazonaws.com/serverless-database-to-datalake-ETL-with-AWS-Glue/setup.yaml)
 
 
 <details>
-<summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
+<summary><strong>AWS Glue Crawler creation Instructions (expand for details)</strong></summary><p>
 
-1. Click the **Launch Stack** link above.
+1. Go to [AWS Glue](https://console.aws.amazon.com/glue/home?region=us-east-1) on the console.
 
-1. Click **Next** on the Select Template page.
+1. On the left pane, select **Crawlers** then Click **Add Crawler** .
 
-1. On the Specify Details page, enter values for Database Name, DBPassword and DBUser, leave the rest default values and click **Next** .
+1. Enter a ```DB-to-DL``` as **Crawler name** and click **Next** .
 
-1. On the Options page, leave all the defaults and click **Next**.
+1. On the Add a data store page, click on the dropdown and select **JDBC** on the **Choose a data store** option and click **Add connection**.
 
-1. Click **Create Stack**.
+1. On the Add connection page, enter ```RDSMySql``` as **Name** and **JDBC** as **Connection type** .
+	For the JDBC URL, enter ```jdbc:mysql://endpoint:3306/mydatabase``` and replace endpoint with your database endpoint.
 
+1. Enter the database username and password. 
 
-1. Wait for the CloudFormation to finish launching resources before proceeding to the next step. 
+1. From the dropdown menu, select the VPC where your RDS instance is.
+
+1. From the drop down menu, select the one of the subnet your RDS instance uses. (Check the **details** section of the RDS instance page on the AWS Console for this information).
+
+1. For security group, select one or more the Security groups that allows access to the data store in your VPC. Ensure the security group defined to allow **Security Group - Inbound** to your RDS instance is selected. This security group can be found on the **details** section of the RDS instance page on the AWS Console.Then click **Add**
+
+1. This takes you back to the Add Crawler wizard. On the Add a data store page, enter ```mydatabase``` in the include path field then click **Next**
+
+1. Select **NO** on the Add another data store page the click **Next**
+
+1.
 
 
 
