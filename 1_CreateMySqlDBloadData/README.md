@@ -60,6 +60,8 @@ Connect to the newly created RDS MySQL Database.
 
 </details>
 
+
+
 ### 1B: Load sample data
 
 Create a new table `customers` in your database and load sample data.
@@ -72,6 +74,8 @@ Create a new table `customers` in your database and load sample data.
 1. Copy, paste and run the query on your SQL Client to create a table and load it with data.   
 
 </details>
+
+
 
 ### 1C: Verify data is in database
 
