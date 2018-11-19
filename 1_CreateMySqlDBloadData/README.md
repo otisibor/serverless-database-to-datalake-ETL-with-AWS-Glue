@@ -59,10 +59,7 @@ Connect to the newly created RDS MySQL Database.
 1. Download,open and run the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) query on your SQL Client to create a table and load it with data.   
 
 </details>
-<p>
-</P>
-<p>
-</P>
+
 
 ### 1B: Load sample data
 
@@ -88,5 +85,5 @@ Run the following command on your SQL client to query the data in your database
 ### Next module
 
 
-After you have verified your bot is answering questions correctly and checked out the lambda execution logs, move onto the next module: [Handle customer requests to subscribe to services](../02_LexBotSubscribeService)
+After you have verified your database contains data, move onto the next module: [Connect, discover and extract data from your MySql database using AWS Glue](2_ExtractDataWithGlue)
 
