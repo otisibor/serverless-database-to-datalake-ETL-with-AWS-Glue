@@ -58,189 +58,26 @@ Connect to the newly created RDS MySQL Database.
 	
 1. Download,open and run the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) query on your SQL Client to create a table and load it with data.   
 
-
-**Custom bot (create your own).**
-
-1. Fill in the form:
-
-	For **Bot name**, use `InternationalPlan`
-	
-	For **Output voice**, pick `Joanna`
-	
-	For **Session timeout**, use 10 minutes 
-	
-	> This is how long your session context will be maintained so your user don't have to verify their identity again if they are interacting with the same bot and device in that time period. 
-
-	For **COPPA**, pick `No`.
-	
-1. Click **Create**
 </details>
 
-### 1B: Create the first intent
+### 1B: Load sample data
 
-Create a new intent `ListInternationalPlans` in the Lex bot
+Create a new table `customers` in your database and load sample data.
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In the `InternationalPlan` Lex bot you just created, click **+Create Intent**
+1. Download and open the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) file.
 
-1. Pick **Create new intent**
-
-1. Give the intent a name, `ListInternationalPlans`, then click **Add**
+1. Copy, paste and run the query on your SQL Client to create a table and load it with data.   
 
 </details>
 
-### 1C: Configure Slots
+### 1C: Verify data is in database
 
-Slots are parameters you can define to capture inputs from your customer. In this example, the input parameter the bot need in order to fulfill the informational query is which country the customer is traveling to. 
-
-Each slot has a type. You can create your **custom slot types** or use **built-in slot types**. Check the [list](http://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins-slots.html) of **Built-in Slot Types**
+Run the following command on your SQL client to query the data in your database
+```SELECT * FROM CUSTOMERS;```
  
-Because there is a built-in slot for country names, we will leverage it for this intent. 
-
-Configure a slot `Country` with built-in type `AMAZON.Country` in the intent. 
- 
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. In the **Slots** section of the `ListInternationalPlans` intent, fill in `Country` for the slot **Name**
-
-1. Select `AMAZON.Country` for **Slot type**
-
-1. For **Prompt**, put in `Which country are you traveling to?`
-
-1. Click the (+) sign to add the slot 
- 
-	![screenshot for after configuring slot](images/slot-config.png)
-
-</details>
-
-### 1D: Configure sample utterances
-
-By providing sample utterances for a given intent, you can teach Amazon Lex different ways a user might convey an intent. 
-
-Add the following sample utterances to the intent:
-
-* `I'm traveling to ​{Country}​`
-* `to ​{Country}​`
-* `List international plans`
-* `List international plans for {Country}`
-* `List travel plans available`
-* `Tell me about travel plans in ​{Country}​`
-* `I want to know about travel plans in ​{Country}​`
-* `What plans are there for ​{Country}​`
-* `What international plans do you have`
-
-> Note that you don't need to list exhaustively every possible way of saying the same intent, just a few examples so the Amazon Lex deep learning algorithms can "learn".
-> 
-> However, if during testing you identified some additional ways to express the intent and Lex doesn't understand it, you can add that as a sample utterance to improve the Lex bot.
-
-At this stage, we haven't configured the backend logic to look up actual plan options the user asks for. But we can test how our Lex bot can understand customer requests before we integrate the backend. 
-
-Save the intent, build and test the bot in the Lex Console.  
-
-
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. Click **Save Intent** to save the intent configuration
-
-1. Click **Build** at the top right of the page to build the bot 
- 
-1. Once the build completes, use the **Test Bot** window to test different ways customer may ask about international plans for the countries they are traveling to. Verify that the bot is able to detect the intent. 
-
-	In the below example, the user utterance contains the slot value, which Lex was able to detect: 
-
-	<img src="images/test-utterance-including-slot.png" alt="" width="50%">
-
-	In this below example, the user didn't tell the country he/she is inquiring about, Lex will use the **prompt** we configured for this slot to get this info from the user: 
-	
-	<img src="images/test-utterance-with-slot-solicitation.png" alt="" width="50%">
-	
-</details>
-
-
-### 1E: Fulfill the query with AWS Lambda
-
-Now we have defined the conversational interface, we need to configure the backend logic to fulfill the customer query using **AWS Lambda**. 
-
-The Lambda function that can respond to the international plan customer request is already deployed by CloudFormation in the setup step. (It does so by querying a DynamoDB table pre-populated with fake data, also launched as part of the preparation CloudFormation)
-
-<details>
-<summary><strong>Expand here for instructions to check the DynamoDB table content on international plan catalogue</strong></summary><p>
-
-1. Go to the [DynamoDB console](https://console.aws.amazon.com/dynamodb/home)
-
-1. Select the table name starting with `lex-workshop-TravelPlanCatalog`
-
-	<img src="images/plan-catalog-table.png" alt="ddb plan catalogue table" width="100%">
-
-1. You should see a list of pre-populated fake international plans. (Additional columns such as price per text are provided so you can use them to extend the bot. e.g. add a `GetPlanDetails` intent)
-
-	<img src="images/plan-catalog-details.png" alt="configure the pin slot" width="100%">
-
-</details>
-
-Now we are ready to configure Lex to send the detected intent and slot values from the user utterance to the `lex-workshop-LexBotHandler` Lambda function.
-
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. In the **Fulfillment** section of the intent, choose **AWS Lambda function** and use the selector to pick the `lex-workshop-LexBotHandler` function
-	
-	<img src="images/pick-lambda.png" alt="" width="90%">
-
-	> There are a handful of other Lambda functions the CloudFormation template created and that they all begin with `lex-workshop`, so be sure to select the right one.
-
-1. Click **OK** to give Lex permission to invoke the Lambda function.
-	![alt text](images/confirm-lambda-permission.png)
-
-1. Save the intent by clicking **Save intent**
-
-1. Build the bot again by clicking **Build**
-
-1. Test the bot 
-
-	<img src="images/after-lambda-integration.png" width="50%">
-
-	> The plan data is randomly generated and loaded into a dynamoDB table by the CloudFormation. It might not always make economic sense. 
-
-1. Feel free to test the voice interaction in the Console as well. 
-
-</details>
-
-
-### 1F: Check execution logs for Lambda
-
-
-It's also valuable to understand what data is being passed to your Lambda function. Take a look at the `lex-workshop-LexBotHandler` function's **CloudWatch Logs** 
-
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. Go to the Lambda [console](https://console.aws.amazon.com/lambda/home)
-
-1. Find the `lex-workshop-LexBotHandler` function and click on it
-
-1. Go to the **Monitoring** tab
-
-1. Click **View logs in CloudWatch**
-
-1. Click on the latest log stream 
-
-1. Find the log line that logs the input into the lambda function:
-
-	![lambda screenshot](images/lambda-cwl.png)
-	
-1. Observe the fields being passed from Lex to Lambda: `userId`, `bot`, `inputTranscript`, name of the intent, and slots identified. See documentation [here](http://docs.aws.amazon.com/lex/latest/dg/lambda-input-response-format.html) on detailed explanation of all available fields.
-
-	> A note on the `userId` field: 
-	>
-	> Think of it as a session identifier used to distinguish conversations or threads. If you are building integration using Lex's API directly, see documentation [here](http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html#API_runtime_PostText_RequestParameters) on deciding what value to use for the user ID field.
-	> For natively supported messaging platforms, the userID is filled for you by the integration (e.g. the user's phone number is used as `userId` in the case of Twilio SMS.)
-	
-</details>
 
 ### Next module
 
