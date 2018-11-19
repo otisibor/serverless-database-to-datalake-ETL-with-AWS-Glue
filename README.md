@@ -8,7 +8,7 @@ In this tutorial, you will learn how to use [AWS Glue](https://aws.amazon.com/gl
 Please see below for the solution architecture
 
 
-<img src="99_resources/architecture_diagram.png" width="100%">
+<img src="serverless_DB_to_DL_arch.jpg" width="100%">
 
 ## Prerequisites
 
