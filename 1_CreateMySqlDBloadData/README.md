@@ -44,7 +44,7 @@ Connect to the newly created RDS MySQL Database.
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. Go to RDS instances on AWS[Console](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:). 
+1. Go to RDS instances on AWS [Console](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:). 
 
 1. Click on the newly create instance and scroll down to the **Connect** . 
 
