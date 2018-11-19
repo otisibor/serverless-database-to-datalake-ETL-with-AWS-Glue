@@ -46,7 +46,7 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 
 1. Enter a prefix for the tables created so you can easily recognise them. You can enter ```rds_mysql_```
 
-1.Review the entries and click **Finish** to complete the crawler creation.
+1. Review the entries and click **Finish** to complete the crawler creation.
 
 
 
