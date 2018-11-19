@@ -85,5 +85,5 @@ Run the following command on your SQL client to query the data in your database
 ### Next module
 
 
-After you have verified your database contains data, move onto the next module: [Connect, discover and extract data from your MySql database using AWS Glue](2_ExtractDataWithGlue)
+After you have verified your database contains data, move onto the next module: [Connect, discover and extract data from your MySql database using AWS Glue](../2_ExtractDataWithGlue)
 
