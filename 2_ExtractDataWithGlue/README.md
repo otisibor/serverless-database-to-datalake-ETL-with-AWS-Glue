@@ -4,7 +4,7 @@ In this module you will connect to your RDS MySql Database, discover and extract
 
 
 
-### Create AWS Glue Crawler 
+### 2A: Create AWS Glue Crawler 
 
 In this step, we will use a CloudFormation template to provision the RDS MySql database which we will need in later steps of the workshop.
 
@@ -36,45 +36,31 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 
 1. Select **NO** on the Add another data store page the click **Next**
 
-1.
+1. On the **Choose an IAM** role page, Click on the IAM role dropdown and select an existing role which has AWSGlueServiceRole and access to your data stores. If you don't have an existing role with these policies, you can create on from the IAM console by clicking the IAM console link on Choose an IAM role page. This will the IAM console on a new tab. After creating the role, you need to click the reload icon next to the IAM role drop down to display your newly created role.
+
+Select the the role and click **Next**
+
+1. On the **Create a schedule for this crawler** page, select Run on Demand on the Frequency dropdown and click **Next**
+
+1. On the Configure the crawler's output page, select the database (in your data lake) that you want the extracted data to be stored. You can create a new database here if you want. 
+
+1. Enter a prefix for the tables created so you can easily recognise them. You can enter ```rds_mysql_```
+
+1.Review the entries and click **Finish** to complete the crawler creation.
 
 
 
 </p></details>
 
 
-### 1A: Connect to the RDS MySql Database
+### 2B: Run the crawler
 
-Connect to the newly created RDS MySQL Database. 
-
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. Go to RDS instances on AWS [Console](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:). 
-
-1. Click on the newly create instance and scroll down to the **Connect** . 
-
-1. Ensure that the **Publicly accessible** is set to **Yes** and the database security group allows connection from your IP.
-	
-	See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) for how to configure Security Groups
-
-1. Using a SQL client of your choice, connect to the database using the endpoint, port, database name, database user and database password (that you defined when creating the database with CloudFormation)
-	
-	[Tableplus](https://tableplus.io/) and [SQL WorkBench/J](https://www.sql-workbench.eu/downloads.html) are both SQL clients that you can use for this tutorial.  
-	
-1. Download,open and run the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) query on your SQL Client to create a table and load it with data.   
-
-</details>
-
-
-### 1B: Load sample data
-
-Create a new table `customers` in your database and load sample data.
+Run the DB-to-DL crawler
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. Download and open the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) file.
+1. On the [Crawlers page](https://console.aws.amazon.com/glue/home?region=us-east-1#catalog:tab=crawlers), select the checkbox next to your newly created crawler and click the **Run crawler** button. If all the configuration is correct, the status of the crawler should change to **starting**
 
 1. Copy, paste and run the query on your SQL Client to create a table and load it with data.   
 
