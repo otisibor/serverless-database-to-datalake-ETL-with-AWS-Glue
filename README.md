@@ -20,7 +20,7 @@ In order to complete this workshop you'll need an AWS Account with sufficient pe
 
 This workshop is broken up into multiple modules. You must complete the modules in sequence starting from the first module before proceeding to the next:
 
-1. [Create a RDS MySql Database and load sample data](01_CreateMySqlDBLoadData)
+1. [Create a RDS MySql Database and load sample data](1_CreateMySqlDBLoadData)
 2. [Connect, discover and extract data from your MySql database using AWS Glue](02_ExtractDataWithGlue)
 
 Once you have successfully extracted the data from your MySql database into your Data Lake, you can choose to complete one or more of the following modules:
