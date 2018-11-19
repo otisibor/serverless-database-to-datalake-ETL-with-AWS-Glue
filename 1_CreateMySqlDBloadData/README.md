@@ -60,7 +60,9 @@ Connect to the newly created RDS MySQL Database.
 
 </details>
 <p>
-<P>
+</P>
+<p>
+</P>
 
 ### 1B: Load sample data
 
