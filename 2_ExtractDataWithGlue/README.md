@@ -38,7 +38,7 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 
 1. On the **Choose an IAM** role page, Click on the IAM role dropdown and select an existing role which has AWSGlueServiceRole and access to your data stores. If you don't have an existing role with these policies, you can create on from the IAM console by clicking the IAM console link on Choose an IAM role page. This will the IAM console on a new tab. After creating the role, you need to click the reload icon next to the IAM role drop down to display your newly created role.
 
-Select the the role and click **Next**
+	Select the the role and click **Next**
 
 1. On the **Create a schedule for this crawler** page, select Run on Demand on the Frequency dropdown and click **Next**
 
