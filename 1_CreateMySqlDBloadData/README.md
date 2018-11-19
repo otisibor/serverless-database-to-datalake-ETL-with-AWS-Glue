@@ -54,9 +54,12 @@ Connect to the newly created RDS MySQL Database.
 
 1. Using a SQL client of your choice, connect to the database using the endpoint, port, database name, database user and database password (that you defined when creating the database with CloudFormation)
 	
-	[Tableplus](  ) and [SQL WorkBench](). 
+	[Tableplus](https://tableplus.io/) and [SQL WorkBench/J](https://www.sql-workbench.eu/downloads.html) are both SQL clients that you can use for this tutorial.  
 	
-1. Pick **Custom bot (create your own).**
+1. Download,open and run the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) query on your SQL Client to create a table and load it with data.   
+
+
+**Custom bot (create your own).**
 
 1. Fill in the form:
 
