@@ -59,8 +59,8 @@ Connect to the newly created RDS MySQL Database.
 1. Download,open and run the [SampleData](https://s3-ap-southeast-1.amazonaws.com/sapuzzle.com/serverless-database-to-datalake-ETL-with-AWS-Glue/sampleData.sql) query on your SQL Client to create a table and load it with data.   
 
 </details>
-
-
+<p>
+<P>
 
 ### 1B: Load sample data
 
