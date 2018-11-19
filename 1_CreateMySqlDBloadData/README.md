@@ -27,7 +27,7 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 1. On the Options page, leave all the defaults and click **Next**.
 
-1. Click **Create Stack **.
+1. Click **Create Stack**.
 
 
 1. Let the CloudFormation launch resources in the background, you don't need to wait for it to finish before proceeding to the next step. 
