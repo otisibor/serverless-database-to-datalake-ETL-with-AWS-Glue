@@ -23,7 +23,7 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 1. Click **Next** on the Select Template page.
 
-1. Enter DBPassword and DBUserClick, leave the rest default values and click **Next** on the Specify Details page.
+1. On the Specify Details page, enter values for DBPassword and DBUser, leave the rest default values and click **Next** .
 
 1. On the Options page, leave all the defaults and click **Next**.
 
