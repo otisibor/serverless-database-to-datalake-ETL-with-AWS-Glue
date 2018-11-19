@@ -23,32 +23,38 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 1. Click **Next** on the Select Template page.
 
-1. On the Specify Details page, enter values for DBPassword and DBUser, leave the rest default values and click **Next** .
+1. On the Specify Details page, enter values for Database Name, DBPassword and DBUser, leave the rest default values and click **Next** .
 
 1. On the Options page, leave all the defaults and click **Next**.
 
 1. Click **Create Stack**.
 
 
-1. Let the CloudFormation launch resources in the background, you don't need to wait for it to finish before proceeding to the next step. 
+1. Wait for the CloudFormation to finish launching resources before proceeding to the next step. 
 
 
 
 </p></details>
 
 
-### 1A: Create a Lex bot
+### 1A: Connect to the RDS MySql Database
 
-Use the Lex Console to create a bot named `InternationalPlan`. 
+Connect to the newly created RDS MySQL Database. 
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. Go to the Lex [Console](https://console.aws.amazon.com/lex/home?region=us-east-1). 
+1. Go to RDS instances on AWS[Console](https://console.aws.amazon.com/rds/home?region=us-east-1#dbinstances:). 
 
-1.  If it's your first time creating Lex chatbots, click **Get Started**.
+1. Click on the newly create instance and scroll down to the **Connect** . 
+
+1. Ensure that the **Publicly accessible** is set to **Yes** and the database security group allows connection from your IP.
 	
-	If you have created Lex bots before, click **Create** under the **Bots** tab. 
+	See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) for how to configure Security Groups
+
+1. Using a SQL client of your choice, connect to the database using the endpoint, port, database name, database user and database password (that you defined when creating the database with CloudFormation)
+	
+	[Tableplus](  ) and [SQL WorkBench](). 
 	
 1. Pick **Custom bot (create your own).**
 
