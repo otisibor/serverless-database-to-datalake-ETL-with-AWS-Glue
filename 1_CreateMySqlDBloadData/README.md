@@ -1,18 +1,6 @@
 # Module 1: Create an RDS MySql Database and Load Sample data into it
 
-In this module you will build a chatbot in Lex and enable it to answer customer's questions on the offerings of your company. 
-
-At completion of this module you will be able to test out your chatbot in the Lex console by asking questions such as "*Tell me about international plans in Germany.*"
-
-##  Informational queries and chatbots
-The first intent you will configure your bot to understand and fulfill will allow your customers to query phone plan options when they travel abroad. This serves an example for a common use case for chatbots: asking information. 
-
-There are two ways you can implement an informational intent: you can make it general or personalize it based on the customer. The latter one requires your bot to be able to identity the customer the bot is interacting with. 
-
-For example, if you build a chatbot that can handle checking the flight status, the general implementation can handle questions like "*what's the status for flight 123?*"; whereas if you can identify the customer asking the question, the bot can give answers to questions to "*what's the status for* ***my*** *flight today?*"
-
-In later modules, you will try out ways for identifying the customer in a Lex bot conversation. For this module, we will stick with a general information query: what are the available phone plan options for a given country the customer is traveling to? The bot will give the same answer for anybody that asks the same question. 
-
+In this module you will create an RDS MySql Database and load sample data into it.
 
 
 ## Implementation Instructions
@@ -21,11 +9,11 @@ Each of the following sections provide an implementation overview and detailed, 
 
 ### Prepare resources 
 
-In this step, we will use a CloudFormation template to provision the AWS Lambda functions, DynamoDB tables, resources we will need in later steps of the workshop.
+In this step, we will use a CloudFormation template to provision the RDS MySql database which we will need in later steps of the workshop.
 
 Region| Region Code | Launch
 ------|------|-------
-US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> | [![Launch Module 1 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=DB_to_DL&templateURL=https://sapuzzle.com.s3.amazonaws.com/serverless-database-to-datalake-ETL-with-AWS-Glue/setup.yaml)
+US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> | [![Launch Module 1 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=DB-to-DL&templateURL=https://sapuzzle.com.s3.amazonaws.com/serverless-database-to-datalake-ETL-with-AWS-Glue/setup.yaml)
 
 
 <details>
@@ -35,19 +23,12 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 1. Click **Next** on the Select Template page.
 
-1. Click **Next** on the Specify Details page.
+1. Enter DBPassword and DBUserClick, leave the rest default values and click **Next** on the Specify Details page.
 
 1. On the Options page, leave all the defaults and click **Next**.
 
-1. On the Review page, check the boxes to acknowledge that CloudFormation will create IAM resources.
+1. Click **Create Stack **.
 
-	<img src="images/cloudformation-changeset.png" alt="" width="120%">
-
-1. Click **Create Change Set**.
-
-	> Note the CloudFormation template we've provided is written using [AWS SAM](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md) (AWS Serverless Application Model). SAM simplifies how to define functions, APIs, etc. for serverless applications, as well as some features for these services like environment variables. When deploying SAM templates in CloudFormation template, a transform step is required to convert the SAM template into standard CloudFormation, thus you must click the **Create Change Set** button to make the transform happen.
-
-1. Wait for the change set to finish computing changes and click **Execute**
 
 1. Let the CloudFormation launch resources in the background, you don't need to wait for it to finish before proceeding to the next step. 
 
