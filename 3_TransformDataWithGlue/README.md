@@ -62,5 +62,5 @@ Run the crawler and check the for the new tables created.
 ### Next module
 
 
-After you have verified that your AWS Glue crawler has successfully extracted data from your MySql database into your data lake, move onto the next module: [Transform your data in your Data lake from SQL format to Parquet format](..3_TransformDataWithGlue)
+After you have verified that your AWS Glue crawler has successfully extracted data from your S3 bucket into your data lake, move onto the next module: [Serverlessly query your data using Amazon Athena](../4_QueryWithAthena)
 
