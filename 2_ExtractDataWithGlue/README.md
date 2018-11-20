@@ -6,9 +6,7 @@ In this module you will connect to your RDS MySql Database, discover and extract
 
 ### 2A: Create AWS Glue Crawler 
 
-In this step, we will use a CloudFormation template to provision the RDS MySql database which we will need in later steps of the workshop.
-
-
+In this step, we will create a crawler in AWS GLue to crawl your RDS MySql database.
 
 <details>
 <summary><strong>AWS Glue Crawler creation Instructions (expand for details)</strong></summary><p>
