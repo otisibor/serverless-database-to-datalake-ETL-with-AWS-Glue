@@ -48,7 +48,7 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 
 1. Review the entries and click **Finish** to complete the crawler creation.
 
-	You can test that your connection is properly configured by clicking the **Connections** menu on the left of the AWS Glue console page, selecting the checkbox next to your newly created Connection then click the Test Connection button. The test will take a few minutes and you will be informed if connection to your RDS instance from AWS Glue is successful or not. 
+	You can test that your connection is properly configured by clicking the **Connections** menu on the left of the AWS Glue console page, selecting the checkbox next to your newly created Connection then click the **Test Connection** button. The test will take a few minutes and you will be informed if connection to your RDS instance from AWS Glue is successful or not. 
 
 
 
