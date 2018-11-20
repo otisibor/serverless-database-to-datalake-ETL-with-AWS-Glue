@@ -70,10 +70,11 @@ Run the DB-to-DL crawler
 
 
 
-### 1C: Verify data is in database
+### 2C: Verify crawler discovered and extracted data from database into data lake
 
-Run the following command on your SQL client to query the data in your database
-```SELECT * FROM CUSTOMERS;```
+Once the cralwer completes running, it displays a message informing you of how many tables were added or updated. 
+
+<img src="images/crawlerRun.jpeg" width="80%">
  
 
 ### Next module
