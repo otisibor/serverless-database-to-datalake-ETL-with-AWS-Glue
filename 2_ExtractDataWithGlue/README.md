@@ -80,5 +80,5 @@ Once the cralwer completes running, it displays a message informing you of how m
 ### Next module
 
 
-After you have verified your database contains data, move onto the next module: [Connect, discover and extract data from your MySql database using AWS Glue](2_ExtractDataWithGlue)
+After you have verified that your AWS Glue crawler has successfully extracted data from your MySql database into your data lake, move onto the next module: [Transform your data in your Data lake from SQL format to Parquet format](..3_TransformDataWithGlue)
 
