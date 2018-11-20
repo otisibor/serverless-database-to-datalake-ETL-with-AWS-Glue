@@ -74,7 +74,7 @@ Run the DB-to-DL crawler
 
 Once the cralwer completes running, it displays a message informing you of how many tables were added or updated. 
 
-<img src="images/crawlerRun.png" width="130%">
+<img src="images/crawlerRun.png" width="180%">
  
 
 ### Next module
