@@ -36,6 +36,8 @@ In this step, we will create an AWS Glue job to perform transformation of data f
 
 1. The code and diagram for the job will be dispayed now as shown below
 
+	<img src="images/transformJob.png" width="180%">
+
 1. Click **Run job** and on the pop up menu, also click **Run job**. The job will begin running and it should take a few minutes to complete.
 
 1. To check the status of the job, go the AWS Glue console and click **Jobs** select the job from the job list by checking the checkbox next to the job. A window with several tabs will appear beneath the job list. Select the **History** which will show you the **Run status** of the job. If the job is successful, the run status will be displayed as ```Succeeded``` . 
