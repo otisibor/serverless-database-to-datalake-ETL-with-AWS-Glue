@@ -42,7 +42,7 @@ In this step, we will create an AWS Glue job to perform transformation of data f
 	
 	See below for a sample screenshot
 	
-	
+	<img src="images/jobStatus.png" width="180%">
 
 
 
@@ -55,26 +55,14 @@ In this step, we will create an AWS Glue job to perform transformation of data f
 </p></details>
 
 
-### 3B: Create and run a crawler to discover and add the new Parquet table to your Data lake
+### 3B: Create and run a new crawler to add the new table
 
-Create and run a new DB-to-DL-parquet crawler
+Create and run a new crawler to discover and add the new Parquet table to your Data lake. The steps are similar to the steps in [Module 2](..2/) but ensure to choose S3 in the **Add a data store** page and select the S3 location of your transform data you defined in your AWS Glue transformation job. Run the crawler and check the for the new tables created.
 
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. On the [Crawlers page](https://console.aws.amazon.com/glue/home?region=us-east-1#catalog:tab=crawlers), select the checkbox next to your newly created crawler and click the **Run crawler** button. If all the configuration is correct, the status of the crawler should change to **starting**
-
-1. Copy, paste and run the query on your SQL Client to create a table and load it with data.   
-
-</details>
+	<img src="images/addDataStore.png" width="180%">
+ 
 
 
-
-### 2C: Verify crawler discovered and extracted data from database into data lake
-
-Once the cralwer completes running, it displays a message informing you of how many tables were added or updated. 
-
-<img src="images/crawlerRun.png" width="180%">
  
 
 ### Next module
