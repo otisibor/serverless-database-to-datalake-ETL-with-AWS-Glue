@@ -3,7 +3,7 @@
 In this module you create a serverless transformation job in AWS Glue to transform your newly extracted data from MySql format into Parquet format in preparation for serverless querying.
 
 
-### 3A: Create AWS Glue Job 
+### 3A: Create and Run an AWS Glue Job 
 
 In this step, we will create an AWS Glue job to perform transformation of data from MySql format to Parquet format .
 
@@ -36,54 +36,28 @@ In this step, we will create an AWS Glue job to perform transformation of data f
 
 1. The code and diagram for the job will be dispayed now as shown below
 
-
 1. Click **Run job** and on the pop up menu, also click **Run job**. The job will begin running and it should take a few minutes to complete.
 
+1. To check the status of the job, go the AWS Glue console and click **Jobs** select the job from the job list by checking the checkbox next to the job. A window with several tabs will appear beneath the job list. Select the **History** which will show you the **Run status** of the job. If the job is successful, the run status will be displayed as ```Succeeded``` . 
+	
+	See below for a sample screenshot
+	
+	
 
 
 
 
 
-
-1. On the Add a data store page, click on the dropdown and select **JDBC** on the **Choose a data store** option and click **Add connection**.
-
-1. On the Add connection page, enter ```RDSMySql``` as **Name** and **JDBC** as **Connection type** .
-	For the JDBC URL, enter ```jdbc:mysql://endpoint:3306/MyDatabase``` and replace endpoint with your database endpoint.
-
-1. Enter the database username and password. 
-
-1. From the dropdown menu, select the VPC where your RDS instance is.
-
-1. From the drop down menu, select the one of the subnet your RDS instance uses. (Check the **details** section of the RDS instance page on the AWS Console for this information).
-
-1. For security group, select one or more the Security groups that allows access to the data store in your VPC. Ensure the security group defined to allow **Security Group - Inbound** to your RDS instance is selected. This security group can be found on the **details** section of the RDS instance page on the AWS Console.Then click **Add**
-
-1. This takes you back to the Add Crawler wizard. On the Add a data store page, enter ```MyDatabase``` in the include path field then click **Next**
-
-1. Select **NO** on the Add another data store page the click **Next**
-
-1. On the **Choose an IAM** role page, Click on the IAM role dropdown and select an existing role which has AWSGlueServiceRole and access to your data stores. If you don't have an existing role with these policies, you can create on from the IAM console by clicking the IAM console link on Choose an IAM role page. This will the IAM console on a new tab. After creating the role, you need to click the reload icon next to the IAM role drop down to display your newly created role.
-
-	Select the the role and click **Next**
-
-1. On the **Create a schedule for this crawler** page, select Run on Demand on the Frequency dropdown and click **Next**
-
-1. On the Configure the crawler's output page, select the database (in your data lake) that you want the extracted data to be stored. You can create a new database here if you want. 
-
-1. Enter a prefix for the tables created so you can easily recognise them. You can enter ```rds_mysql_```
-
-1. Review the entries and click **Finish** to complete the crawler creation.
-
-	You can test that your connection is properly configured by clicking the **Connections** menu on the left of the AWS Glue console page, selecting the checkbox next to your newly created Connection then click the **Test Connection** button. The test will take a few minutes and you will be informed if connection to your RDS instance from AWS Glue is successful or not. 
+ 
 
 
 
 </p></details>
 
 
-### 2B: Run the crawler
+### 3B: Create and run a crawler to discover and add the new Parquet table to your Data lake
 
-Run the DB-to-DL crawler
+Create and run a new DB-to-DL-parquet crawler
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
