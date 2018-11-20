@@ -22,7 +22,7 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 1. On the Add a data store page, click on the dropdown and select **JDBC** on the **Choose a data store** option and click **Add connection**.
 
 1. On the Add connection page, enter ```RDSMySql``` as **Name** and **JDBC** as **Connection type** .
-	For the JDBC URL, enter ```jdbc:mysql://endpoint:3306/mydatabase``` and replace endpoint with your database endpoint.
+	For the JDBC URL, enter ```jdbc:mysql://endpoint:3306/MyDatabase``` and replace endpoint with your database endpoint.
 
 1. Enter the database username and password. 
 
@@ -47,6 +47,8 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 1. Enter a prefix for the tables created so you can easily recognise them. You can enter ```rds_mysql_```
 
 1. Review the entries and click **Finish** to complete the crawler creation.
+
+	You can test that your connection is properly configured by clicking the **Connections** menu on the left of the AWS Glue console page, selecting the checkbox next to your newly created Connection then click the Test Connection button. The test will take a few minutes and you will be informed if connection to your RDS instance from AWS Glue is successful or not. 
 
 
 
