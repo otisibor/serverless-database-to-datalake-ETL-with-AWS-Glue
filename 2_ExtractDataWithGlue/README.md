@@ -32,7 +32,7 @@ In this step, we will use a CloudFormation template to provision the RDS MySql d
 
 1. For security group, select one or more the Security groups that allows access to the data store in your VPC. Ensure the security group defined to allow **Security Group - Inbound** to your RDS instance is selected. This security group can be found on the **details** section of the RDS instance page on the AWS Console.Then click **Add**
 
-1. This takes you back to the Add Crawler wizard. On the Add a data store page, enter ```mydatabase``` in the include path field then click **Next**
+1. This takes you back to the Add Crawler wizard. On the Add a data store page, enter ```MyDatabase``` in the include path field then click **Next**
 
 1. Select **NO** on the Add another data store page the click **Next**
 
