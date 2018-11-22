@@ -1,15 +1,8 @@
 
 # Module 4: Serverlessly query your data using Amazon Athena
 
-Firstly, congratulations for reaching the last module in this tutorial. In this module you access and query the data that was extracted from your RDS MySql database and transformed to Parquet format.This data will be queiried directly from the your data lake without loading it into a database or data warehouse using Amazon Athena. 
+Firstly, congratulations for reaching the last module in this tutorial. In this module you access and query the data that was extracted from your RDS MySql database and transformed to Parquet format.This data will be queried directly from the your data lake without loading it into a database or data warehouse using Amazon Athena. 
 
-
-### 4A: Access Data in Parquet format  
-
-In this step, we will access the data we transformed to Parquet format and added to our data catalog as a table by our Glue Crawlers .
-
-<details>
-<summary><strong>Instructions for Accessing Glue table(expand for details)</strong></summary><p>
 
 1. Go to [AWS Glue](https://console.aws.amazon.com/glue/home?region=us-east-1) on the console.
 
