@@ -25,13 +25,13 @@ This workshop is broken up into multiple modules. You must complete the modules 
 
 Once you have successfully extracted the data from your MySql database into your Data Lake, you can choose to complete one or more of the following modules:
 
-* [Perform server-less perform transformation on your data with AWS Glue(Coming Soon)](03_AmazonConnectIntegration)
+* [Perform server-less perform transformation on your data with AWS Glue](3_AmazonConnectIntegration)
 * [Serverlessly query your data using Amazon Athena(Coming Soon) ](04_TwilioSMSIntegration)
 
-Extra credit ideas:
 
-* [Extra credit](10_ExtraCredit)
 
-Resource cleanup:
 
-* [Resource clean-up](11_Cleanup)
+
+
+
+
