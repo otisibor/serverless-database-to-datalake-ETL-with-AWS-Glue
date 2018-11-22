@@ -1,23 +1,21 @@
 
 # Module 4: Serverlessly query your data using Amazon Athena
 
-In this module you create a serverless transformation job in AWS Glue to transform your newly extracted data from MySql format into Parquet format in preparation for serverless querying.
+Firstly, congratulations for reaching the last module in this tutorial. In this module you access and query the data that was extracted from your RDS MySql database and transformed to Parquet format.This data will be queiried directly from the your data lake without loading it into a database or data warehouse using Amazon Athena. 
 
 
-### 3A: Create and Run an AWS Glue Job 
+### 3A: Access Data in Parquet format  
 
-In this step, we will create an AWS Glue job to perform transformation of data from MySql format to Parquet format .
+In this step, we will access the data we transformed to Parquet format and added to our data catalog as a table by our Glue Crawlers .
 
 <details>
-<summary><strong>AWS Glue Job creation Instructions (expand for details)</strong></summary><p>
-
-1. Go to [Amazon S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1) on the console and create a new bucket. Give it any name you like.
+<summary><strong>Instructions for Accessing Glue table(expand for details)</strong></summary><p>
 
 1. Go to [AWS Glue](https://console.aws.amazon.com/glue/home?region=us-east-1) on the console.
 
-1. On the left pane, under the ETL section, select **Jobs** then Click **Add Job** .
+1. On the left pane, under the Data catlog section, select **Tables**.
 
-1. Enter a ```DB-to-DL-transform``` as **Job name** .
+1. Select the checkbox beside the table name and click the action dropdown button as **Job name** .
 
 1. Select the an exisitng IAM role or Create a new one which has permission to your Amazon S3 sources, targets, temporary directory, scripts, and any libraries used by the job.
 
